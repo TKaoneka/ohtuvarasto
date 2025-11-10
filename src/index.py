@@ -15,7 +15,7 @@ def main():
     print(f"paljonko_mahtuu = {olutta.paljonko_mahtuu()}")
     print(f"paljonko_mahtuu = {olutta.paljonko_mahtuu()}")
     print(f"paljonko_mahtuu = {olutta.paljonko_mahtuu()}")
-    print(f"paljonko_mahtuu = {olutta.paljonko_mahtuu()}")
+    print(f"paljonko_mahtuu = {olutta.paljonko_mahtuu()} dddd")
 
 if __name__ == "__main__":
     main()
