@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Install Pylint
-        run: poetry install pylint
+        run: poetry add pylint --group dev; pylint --generate-rcfile
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
       - name: Coverage report
