@@ -23,7 +23,7 @@ jobs:
       - name: Coverage report
         run: poetry run coverage xml
       - name: Run Pylint
-        run: pylint src/ || true
+        run: pylint src
       - name: Coverage report to Codecov
         uses: codecov/codecov-action@v5
         env:
