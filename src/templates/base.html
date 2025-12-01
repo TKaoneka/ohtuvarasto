@@ -104,9 +104,11 @@
 <body>
     <nav>
         <a href="{{ url_for('index') }}" class="btn btn-secondary">Home</a>
+        {% block nav_create %}
         <a href="{{ url_for('create_varasto') }}" class="btn btn-primary">
             Create New Varasto
         </a>
+        {% endblock %}
     </nav>
     {% block content %}{% endblock %}
 </body>
