@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Varastot - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Varastot (Warehouses)</h1>
+    
+    {% if varastot %}
+        {% for id, data in varastot.items() %}
+        <div class="varasto-item">
+            <h3>{{ data.nimi }}</h3>
+            <p class="stats">
+                <strong>Balance:</strong> {{ data.varasto.saldo }} | 
+                <strong>Capacity:</strong> {{ data.varasto.tilavuus }} | 
+                <strong>Space left:</strong> {{ data.varasto.paljonko_mahtuu() }}
+            </p>
+            <a href="{{ url_for('view_varasto', varasto_id=id) }}" 
+               class="btn btn-primary">View</a>
+            <a href="{{ url_for('edit_varasto', varasto_id=id) }}" 
+               class="btn btn-secondary">Edit</a>
+            <form action="{{ url_for('delete_varasto', varasto_id=id) }}" 
+                  method="POST" class="inline-form">
+                <button type="submit" class="btn btn-danger"
+                        onclick="return confirm('Delete this varasto?')">
+                    Delete
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No varastot yet. Create one to get started!</p>
+    {% endif %}
+</div>
+{% endblock %}
